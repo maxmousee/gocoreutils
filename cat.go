@@ -24,10 +24,10 @@ func FileExists(filename string) bool {
 //GetFilesToRead Returns a list of files from os.Args
 func GetFilesToRead() []string {
 	argsWithoutProg := os.Args[1:]
-	inputFiles := make([]string, len(argsWithoutProg))
-	for i, s := range argsWithoutProg {
-		if ArgIsFile(s) && FileExists(s) {
-			inputFiles[i] = s
+	inputFiles := []string{}
+	for _, currentFile := range argsWithoutProg {
+		if ArgIsFile(currentFile) && FileExists(currentFile) {
+			inputFiles = append(inputFiles, currentFile)
 		}
 	}
 	return inputFiles
@@ -44,7 +44,7 @@ func ReadFile(filename string) string {
 
 func main() {
 	inputFiles := GetFilesToRead()
-	for _, s := range inputFiles {
-		fmt.Println(ReadFile(s))
+	for _, currentFile := range inputFiles {
+		fmt.Println(ReadFile(currentFile))
 	}
 }
