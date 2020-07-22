@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -32,9 +33,18 @@ func GetFilesToRead() []string {
 	return inputFiles
 }
 
-// func
+//ReadFile returns a string with file contents
+func ReadFile(filename string) string {
+	content, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return ""
+	}
+	return string(content)
+}
 
 func main() {
 	inputFiles := GetFilesToRead()
-	fmt.Println(inputFiles)
+	for _, s := range inputFiles {
+		fmt.Println(ReadFile(s))
+	}
 }
