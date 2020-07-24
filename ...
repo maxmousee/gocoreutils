@@ -1,0 +1,12 @@
+mode: set
+/Users/maxmouse/repo/goutils/cat.go:8.32,11.46 3 0
+/Users/maxmouse/repo/goutils/cat.go:16.2,16.19 1 0
+/Users/maxmouse/repo/goutils/cat.go:11.46,12.56 1 0
+/Users/maxmouse/repo/goutils/cat.go:12.56,14.4 1 0
+/Users/maxmouse/repo/goutils/cat.go:19.13,21.41 2 0
+/Users/maxmouse/repo/goutils/cat.go:21.41,23.3 1 0
+/Users/maxmouse/repo/goutils/utils.go:10.33,12.2 1 1
+/Users/maxmouse/repo/goutils/utils.go:15.39,18.2 2 0
+/Users/maxmouse/repo/goutils/utils.go:21.39,23.16 2 0
+/Users/maxmouse/repo/goutils/utils.go:26.2,26.24 1 0
+/Users/maxmouse/repo/goutils/utils.go:23.16,25.3 1 0
