@@ -14,10 +14,7 @@ func ArgIsFile(arg string) bool {
 //FileExists checks if the file exists and user has permission to read it
 func FileExists(filename string) bool {
 	info, err := os.Stat(filename)
-	if os.IsNotExist(err) {
-		return false
-	}
-	return !info.IsDir()
+	return !os.IsNotExist(err) && !info.IsDir()
 }
 
 //ReadFile returns a string with file contents
