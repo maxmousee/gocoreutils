@@ -17,10 +17,26 @@ func TestArgIsNotAFile(t *testing.T) {
 	assertions.False(result, "strings starting with dashes are not recognized as files")
 }
 
+func TestFileDoesNotExist(t *testing.T) {
+	assertions := assert.New(t)
+	result := FileExists("somefile.txt")
+	assertions.False(result, "this file does not exist")
+}
+
 func TestFileExists(t *testing.T) {
-	//TODO
+	assertions := assert.New(t)
+	result := FileExists("testfiles/file1.txt")
+	assertions.True(result, "this test file should exist")
 }
 
 func TestReadFile(t *testing.T) {
-	//TODO
+	assertions := assert.New(t)
+	result := ReadFile("testfiles/file1.txt")
+	assertions.Equal("line1\nline2", result)
+}
+
+func TestReadFileThatDoesNotExist(t *testing.T) {
+	assertions := assert.New(t)
+	result := ReadFile("nonexistentfile.txt")
+	assertions.Equal("", result)
 }
