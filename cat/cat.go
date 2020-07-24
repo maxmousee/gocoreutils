@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -24,4 +25,23 @@ func ReadFile(filename string) string {
 		return ""
 	}
 	return string(content)
+}
+
+//GetFilesToRead returns all valid and accessible files from a given list of files
+func GetFilesToRead() []string {
+	argsWithoutProg := os.Args[1:]
+	inputFiles := []string{}
+	for _, currentFile := range argsWithoutProg {
+		if ArgIsFile(currentFile) && FileExists(currentFile) {
+			inputFiles = append(inputFiles, currentFile)
+		}
+	}
+	return inputFiles
+}
+
+func main() {
+	inputFiles := GetFilesToRead()
+	for _, currentFile := range inputFiles {
+		fmt.Println(ReadFile(currentFile))
+	}
 }

@@ -5,6 +5,12 @@ import (
 	"testing"
 )
 
+func TestNoFilesToRead(t *testing.T) {
+	assertions := assert.New(t)
+	result := GetFilesToRead()
+	assertions.Equal([]string{}, result)
+}
+
 func TestArgIsFile(t *testing.T) {
 	assertions := assert.New(t)
 	result := ArgIsFile("somefile")
@@ -25,13 +31,13 @@ func TestFileDoesNotExist(t *testing.T) {
 
 func TestFileExists(t *testing.T) {
 	assertions := assert.New(t)
-	result := FileExists("testfiles/file1.txt")
+	result := FileExists("../testfiles/file1.txt")
 	assertions.True(result, "this test file should exist")
 }
 
 func TestReadFile(t *testing.T) {
 	assertions := assert.New(t)
-	result := ReadFile("testfiles/file1.txt")
+	result := ReadFile("../testfiles/file1.txt")
 	assertions.Equal("line1\nline2", result)
 }
 
