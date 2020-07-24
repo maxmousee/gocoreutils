@@ -5,8 +5,7 @@ import (
 	"os"
 )
 
-//GetFilesToRead Returns a list of files from os.Args
-func GetFilesToRead() []string {
+func getFilesToRead() []string {
 	argsWithoutProg := os.Args[1:]
 	inputFiles := []string{}
 	for _, currentFile := range argsWithoutProg {
@@ -18,7 +17,7 @@ func GetFilesToRead() []string {
 }
 
 func main() {
-	inputFiles := GetFilesToRead()
+	inputFiles := getFilesToRead()
 	for _, currentFile := range inputFiles {
 		fmt.Println(ReadFile(currentFile))
 	}
